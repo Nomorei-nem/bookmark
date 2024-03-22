@@ -81,12 +81,6 @@ html {
 	}
 }
 
-/* .tab:hover {
-	border-top: 1px solid #e5e7eb;
-	border-right: 1px solid #e5e7eb;
-	border-left: 1px solid #e5e7eb;
-} */
-
 .active-tab {
 	border: 1px solid #adafb3;
 	border-bottom: 5px solid hsl(0, 94%, 66%);
@@ -104,5 +98,70 @@ html {
 
 	100% {
 		border-bottom: 5px solid hsl(0, 94%, 66%);
+	}
+}
+
+/* FAQ Section */
+
+.arrow.open {
+	transition: all 0.3s;
+	transform: rotate(-180deg);
+
+	.stroke {
+		stroke: hsl(0, 94%, 66%);
+	}
+}
+
+.question:hover .arrow {
+	animation: bounce 0.5s infinite;
+}
+
+.question:hover .arrow.open {
+	animation: open-bounce 0.5s infinite;
+}
+
+.question:has(.open) {
+	background-color: rgb(226, 232, 240);
+}
+
+.answer-container {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.5s;
+
+	& > p {
+		overflow: hidden;
+	}
+}
+
+.question.expand + .answer-container {
+	grid-template-rows: 1fr;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(10px);
+	}
+
+	0% {
+		transform: translateY(0px);
+	}
+
+	100% {
+		transform: translateY(10px);
+	}
+}
+
+@keyframes open-bounce {
+	0% {
+		transform: rotate(-180deg) translateY(10px);
+	}
+
+	0% {
+		transform: rotate(-180deg) translateY(0px);
+	}
+
+	100% {
+		transform: rotate(-180deg) translateY(10px);
 	}
 }

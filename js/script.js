@@ -38,3 +38,19 @@ tabs.forEach((el) => {
 		currentTab.classList.add('active-tab');
 	});
 });
+
+// FAQ Section Drop-Down Functionality
+
+const questions = Array.from(document.querySelectorAll('.question'));
+const arrows = Array.from(document.querySelectorAll('.arrow'));
+
+const answers = document.querySelector('.answer');
+
+questions.forEach((el) => {
+	el.addEventListener('click', () => {
+		const elNumber = questions.indexOf(el);
+
+		arrows[elNumber].classList.toggle('open');
+		questions[elNumber].classList.toggle('expand');
+	});
+});
